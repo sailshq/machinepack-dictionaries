@@ -1,0 +1,26 @@
+{
+  "name": "machinepack-dictionaries",
+  "version": "0.1.0",
+  "description": "Work with dictionaries.",
+  "scripts": {
+    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
+  },
+  "keywords": [
+    "Dictionaries",
+    "machines",
+    "machinepack"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies":{
+    "machine": "^4.0.0"
+  },
+  "devDependencies": {
+    "test-machinepack-mocha": "^0.2.2"
+  },
+  "machinepack": {
+    "friendlyName": "Dictionaries",
+    "machineDir": "machines/",
+    "machines": []
+  }
+}
