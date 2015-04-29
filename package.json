@@ -29,7 +29,8 @@
       "delete-key",
       "rename-key",
       "copy-key",
-      "add-key"
+      "add-key",
+      "keys"
     ],
     "testsUrl": "https://travis-ci.org/treelinehq/machinepack-dictionaries"
   },
