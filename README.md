@@ -8,7 +8,7 @@
 Work with dictionaries.
 
 
-## Installation &nbsp; [![NPM version](https://badge.fury.io/js/machinepack-dictionaries.svg)](http://badge.fury.io/js/machinepack-dictionaries) [![Build Status](https://travis-ci.org/mikermcneil/machinepack-dictionaries.png?branch=master)](https://travis-ci.org/mikermcneil/machinepack-dictionaries)
+## Installation &nbsp; [![NPM version](https://badge.fury.io/js/machinepack-dictionaries.svg)](http://badge.fury.io/js/machinepack-dictionaries) [![Build Status](https://travis-ci.org/treelinehq/machinepack-dictionaries.png?branch=master)](https://travis-ci.org/treelinehq/machinepack-dictionaries)
 
 ```sh
 $ npm install machinepack-dictionaries
