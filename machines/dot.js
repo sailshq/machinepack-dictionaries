@@ -45,6 +45,11 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
 
+    notFound: {
+      friendlyName: 'no such key',
+      description: 'The specified key does not exist.'
+    },
+
     success: {
       friendlyName: 'then',
       description: 'Done.',
@@ -71,12 +76,23 @@ module.exports = {
     var subtree = inputs.dictionary;
     try {
       _.each(inputs.keypath.split('.'), function (subkey){
+        // Short-circuit when an undefined subtree is discovered
+        // to avoid dealing w/ `.code` negotiation w/i the try/catch.
+        if (_.isUndefined(subtree)) {
+          return subtree;
+        }
         subtree = subtree[subkey];
       });
     }
     catch (e) {
       return exits.error(e);
     }
+
+    // key does not exist
+    if (_.isUndefined(subtree)) {
+      return exits.notFound();
+    }
+
     return exits.success(subtree);
   }
 

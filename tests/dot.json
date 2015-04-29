@@ -1,6 +1,45 @@
 {
   "machine": "dot",
   "expectations": [
-
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "keypath": "direwolf"
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "Summer"
+      }
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "keypath": "direwolf.name"
+      },
+      "outcome": "success",
+      "returns": "Summer"
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "keypath": "fullName"
+      },
+      "outcome": "success",
+      "returns": "Bran Stark"
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "keypath": "age"
+      },
+      "outcome": "notFound"
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "keypath": "direwolf.age"
+      },
+      "outcome": "notFound"
+    }
   ]
 }
