@@ -75,12 +75,13 @@ module.exports = {
       description: 'Done.',
       getExample: function (inputs, env){
         var _ = env._;
+        var force = _.isUndefined(inputs.force) ? true : false;
         var value = inputs.dictionary[inputs.originalKey];
         if (_.isUndefined(value)) {
           return;
         }
         delete inputs.dictionary[inputs.originalKey];
-        if (!inputs.force && !env._.isUndefined(inputs.dictionary[inputs.newKey])) {
+        if (!force && !env._.isUndefined(inputs.dictionary[inputs.newKey])) {
           return;
         }
         inputs.dictionary[inputs.newKey] = value;
@@ -93,12 +94,13 @@ module.exports = {
 
   fn: function(inputs, exits) {
     var _ = require('lodash');
+    var force = _.isUndefined(inputs.force) ? true : false;
     var value = inputs.dictionary[inputs.originalKey];
     if (_.isUndefined(value)) {
       return exits.noSuchKey();
     }
     delete inputs.dictionary[inputs.originalKey];
-    if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
+    if (!force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
       return exits.keyAlreadyExists();
     }
     inputs.dictionary[inputs.newKey] = value;
