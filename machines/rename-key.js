@@ -75,7 +75,7 @@ module.exports = {
       description: 'Done.',
       getExample: function (inputs, env){
         var _ = env._;
-        var force = _.isUndefined(inputs.force) ? true : false;
+        var force = _.isUndefined(inputs.force) ? true : inputs.force;
         var value = inputs.dictionary[inputs.originalKey];
         if (_.isUndefined(value)) {
           return;
@@ -94,7 +94,7 @@ module.exports = {
 
   fn: function(inputs, exits) {
     var _ = require('lodash');
-    var force = _.isUndefined(inputs.force) ? true : false;
+    var force = _.isUndefined(inputs.force) ? true : inputs.force;
     var value = inputs.dictionary[inputs.originalKey];
     if (_.isUndefined(value)) {
       return exits.noSuchKey();
