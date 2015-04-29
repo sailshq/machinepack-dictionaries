@@ -21,7 +21,7 @@
   "machinepack": {
     "friendlyName": "Dictionaries",
     "machineDir": "machines/",
-    "machines": [],
+    "machines": ["merge", "construct", "dot"],
     "testsUrl": "https://travis-ci.org/treelinehq/machinepack-dictionaries"
   },
   "repository": {
