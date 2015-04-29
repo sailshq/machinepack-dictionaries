@@ -1,0 +1,10 @@
+{
+  "machine": "add-key",
+  "expectations": [
+    {
+      "todo": true,
+      "using": {},
+      "outcome": "success"
+    }
+  ]
+}
