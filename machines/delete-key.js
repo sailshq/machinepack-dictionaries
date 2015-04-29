@@ -44,10 +44,18 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
 
+    noSuchKey: {
+      friendlyName: 'no such key',
+      description: 'The specified key does not exist.'
+    },
+
     success: {
       friendlyName: 'then',
       description: 'Done.',
-      getExample: function (inputs){
+      getExample: function (inputs, env){
+        if (env._.isUndefined(inputs.dictionary[inputs.key])){
+          return;
+        }
         delete inputs.dictionary[inputs.key];
         return inputs.dictionary;
       }
@@ -57,6 +65,10 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+    var _ = require('lodash');
+    if (_.isUndefined(inputs.dictionary[inputs.key])){
+      return exits.noSuchKey();
+    }
     delete inputs.dictionary[inputs.key];
     return exits.success(inputs.dictionary);
   }
