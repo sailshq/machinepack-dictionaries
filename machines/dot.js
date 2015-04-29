@@ -1,26 +1,47 @@
 module.exports = {
+
+
   friendlyName: 'Dot (.)',
+
+
   description: 'Get the value of (dereference) a particular key within a dictionary.',
+
+
   extendedDescription: '',
+
+
   sync: true,
+
+
   cacheable: true,
+
+
   inputs: {
+
     dictionary: {
       description: 'The dictionary to dereference',
       typeclass: 'dictionary',
       required: true
     },
+
     keypath: {
       description: 'The key to look up (can be nested, e.g. "avatar" or "avatar.sizeInBytes")',
       example: 'mom.email',
       required: true
     }
+
   },
+
+
   defaultExit: 'success',
+
+
   exits: {
+
     error: {
       description: 'Unexpected error occurred.'
     },
+
     success: {
       description: 'Returns the concatenated result.',
       getExample: function (inputs,env){
@@ -36,7 +57,10 @@ module.exports = {
         return subtree;
       }
     }
+
   },
+
+
   fn: function(inputs, exits) {
     var _ = require('lodash');
 
@@ -50,6 +74,6 @@ module.exports = {
       return exits.error(e);
     }
     return exits.success(subtree);
-  },
+  }
 
 };
