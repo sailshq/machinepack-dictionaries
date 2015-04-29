@@ -45,7 +45,7 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
 
-    notFound: {
+    noSuchKey: {
       friendlyName: 'no such key',
       description: 'The specified key does not exist.'
     },
@@ -90,7 +90,7 @@ module.exports = {
 
     // key does not exist
     if (_.isUndefined(subtree)) {
-      return exits.notFound();
+      return exits.noSuchKey();
     }
 
     return exits.success(subtree);

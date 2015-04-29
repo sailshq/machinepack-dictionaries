@@ -1,5 +1,23 @@
 {
   "machine": "construct",
   "expectations": [
+    {
+      "using": {
+        "dictionary": "{}"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "dictionary": "{\"foo\": [\"bar\", \"baz\"]}"
+      },
+      "outcome": "success",
+      "returns": {
+        "foo": [
+          "bar",
+          "baz"
+        ]
+      }
+    }
   ]
 }

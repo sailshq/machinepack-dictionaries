@@ -5,6 +5,21 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "originalKey": "fullName",
+        "newKey": "name"
+      },
+      "outcome": "success",
+      "returns": {
+        "fullName": "Bran Stark",
+        "direwolf": {
+          "name": "Summer"
+        },
+        "name": "Bran Stark"
+      }
     }
   ]
 }

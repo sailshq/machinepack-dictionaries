@@ -32,14 +32,14 @@
         "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
         "keypath": "age"
       },
-      "outcome": "notFound"
+      "outcome": "noSuchKey"
     },
     {
       "using": {
         "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
         "keypath": "direwolf.age"
       },
-      "outcome": "notFound"
+      "outcome": "noSuchKey"
     }
   ]
 }

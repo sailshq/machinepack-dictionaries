@@ -5,6 +5,41 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "key": "fullName"
+      },
+      "outcome": "success",
+      "returns": {
+        "direwolf": {
+          "name": "Summer"
+        }
+      }
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "key": "direwolf"
+      },
+      "outcome": "success",
+      "returns": {
+        "fullName": "Bran Stark"
+      }
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "key": "some key which totally does not exist"
+      },
+      "outcome": "success",
+      "returns": {
+        "fullName": "Bran Stark",
+        "direwolf": {
+          "name": "Summer"
+        }
+      }
     }
   ]
 }
