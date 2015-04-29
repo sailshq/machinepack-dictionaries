@@ -61,6 +61,14 @@
       "returns": {
         "direwolf": "Bran Stark"
       }
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "originalKey": "something that totally does not exist",
+        "newKey": "direwolf"
+      },
+      "outcome": "noSuchKey"
     }
   ]
 }
