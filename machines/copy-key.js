@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Rename key',
+  friendlyName: 'Copy key',
 
 
-  description: 'Rename a key in a dictionary and return the result (a new dictionary).',
+  description: 'Copy a key in a dictionary and return the result (a new dictionary).',
 
 
   extendedDescription: '',
@@ -20,22 +20,22 @@ module.exports = {
 
     dictionary: {
       friendlyName: 'Dictionary',
-      description: 'The dictionary to rename the key in.',
+      description: 'The dictionary where the key will be copied.',
       typeclass: 'dictionary',
       required: true
     },
 
     originalKey: {
-      friendlyName: 'Original key',
-      description: 'The key to rename.',
-      example: 'studentName',
+      friendlyName: 'Existing key',
+      description: 'The name of the existing key whose value will be copied.',
+      example: 'githubUsername',
       required: true
     },
 
     newKey: {
       friendlyName: 'New key',
-      description: 'A new name for the key.',
-      example: 'studentFullName',
+      description: 'A name for the new key.',
+      example: 'twitterUsername',
       required: true
     }
 
@@ -56,7 +56,6 @@ module.exports = {
       description: 'Done.',
       getExample: function (inputs){
         var value = inputs.dictionary[inputs.originalKey];
-        delete inputs.dictionary[inputs.originalKey];
         inputs.dictionary[inputs.newKey] = value;
         return inputs.dictionary;
       }
@@ -67,7 +66,6 @@ module.exports = {
 
   fn: function(inputs, exits) {
     var value = inputs.dictionary[inputs.originalKey];
-    delete inputs.dictionary[inputs.originalKey];
     inputs.dictionary[inputs.newKey] = value;
     return exits.success(inputs.dictionary);
   }

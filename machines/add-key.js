@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Delete key',
+  friendlyName: 'Add new key',
 
 
-  description: 'Delete a key from a dictionary and return the result (a new dictionary).',
+  description: 'Add a new key to a dictionary.',
 
 
   extendedDescription: '',
@@ -20,15 +20,22 @@ module.exports = {
 
     dictionary: {
       friendlyName: 'Dictionary',
-      description: 'The dictionary to delete the key from.',
+      description: 'The dictionary where the new key will be added.',
       typeclass: 'dictionary',
       required: true
     },
 
-    key: {
-      friendlyName: 'Key',
-      description: 'The key to delete.',
-      example: 'password',
+    newKey: {
+      friendlyName: 'New key',
+      description: 'A name for the new key.',
+      example: 'twitterUsername',
+      required: true
+    },
+
+    value: {
+      friendlyName: 'Value',
+      description: 'The value to associate with the new key.',
+      typeclass: '*',
       required: true
     }
 
@@ -48,7 +55,7 @@ module.exports = {
       friendlyName: 'then',
       description: 'Done.',
       getExample: function (inputs){
-        delete inputs.dictionary[inputs.key];
+        inputs.dictionary[inputs.newKey] = inputs.value;
         return inputs.dictionary;
       }
     }
@@ -57,7 +64,7 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
-    delete inputs.dictionary[inputs.key];
+    inputs.dictionary[inputs.newKey] = inputs.value;
     return exits.success(inputs.dictionary);
   }
 

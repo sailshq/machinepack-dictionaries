@@ -26,7 +26,9 @@
       "construct",
       "dot",
       "delete-key",
-      "rename-key"
+      "rename-key",
+      "copy-key",
+      "add-key"
     ],
     "testsUrl": "https://travis-ci.org/treelinehq/machinepack-dictionaries"
   },
