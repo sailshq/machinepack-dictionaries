@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Dot (.)',
 
 
-  description: 'Get the value of (dereference) a particular key within a dictionary.',
+  description: 'Get the value associated with a particular key in a dictionary.',
 
 
   extendedDescription: '',
@@ -19,13 +19,16 @@ module.exports = {
   inputs: {
 
     dictionary: {
+      friendlyName: 'Dictionary',
       description: 'The dictionary to dereference',
       typeclass: 'dictionary',
       required: true
     },
 
     keypath: {
+      friendlyName: 'Key',
       description: 'The key to look up (can be nested, e.g. "avatar" or "avatar.sizeInBytes")',
+      extendedDescription: 'Note that this means that you cannot use this machine to grab the value of keys that **actually** have a dot (.) in them.',
       example: 'mom.email',
       required: true
     }
@@ -43,7 +46,8 @@ module.exports = {
     },
 
     success: {
-      description: 'Returns the concatenated result.',
+      friendlyName: 'then',
+      description: 'Done.',
       getExample: function (inputs,env){
         var subtree = inputs.dictionary;
         try {

@@ -1,10 +1,6 @@
 {
   "machine": "dot",
   "expectations": [
-    {
-      "todo": true,
-      "using": {},
-      "outcome": "success"
-    }
+
   ]
 }
