@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Merge dictionaries',
 
 
-  description: 'Merge two dictionaries together and return the result.',
+  description: 'Merge two dictionaries together and return the result (a new dictionary)',
 
 
   sync: true,
