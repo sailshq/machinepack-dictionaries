@@ -38,6 +38,29 @@
         "force": "false"
       },
       "outcome": "keyAlreadyExists"
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "originalKey": "fullName",
+        "newKey": "direwolf",
+        "force": "true"
+      },
+      "outcome": "success",
+      "returns": {
+        "direwolf": "Bran Stark"
+      }
+    },
+    {
+      "using": {
+        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "originalKey": "fullName",
+        "newKey": "direwolf"
+      },
+      "outcome": "success",
+      "returns": {
+        "direwolf": "Bran Stark"
+      }
     }
   ]
 }
