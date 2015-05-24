@@ -4,17 +4,11 @@
     {
       "using": {
         "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
-        "newKey": "age",
+        "newKey": "\"age\"",
         "value": "9"
       },
       "outcome": "success",
-      "returns": {
-        "fullName": "Bran Stark",
-        "direwolf": {
-          "name": "Summer"
-        },
-        "age": "9"
-      }
+      "returns": {"fullName":"Bran Stark","direwolf":{"name":"Summer"},"age":9}
     },
     {
       "using": {

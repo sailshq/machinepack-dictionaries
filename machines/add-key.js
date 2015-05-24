@@ -89,14 +89,14 @@ module.exports = {
         // if there is an old key in the way.
         if (inputs.force) {
           inputs.dictionary[inputs.newKey] = inputs.value;
-          return inputs.dictionary[inputs.newKey];
+          return inputs.dictionary;
         }
 
         // If force is `false` and the key DOES NOT already exist, we know the
         // resulting dictionary will have the new key value,
         if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
           inputs.dictionary[inputs.newKey] = inputs.value;
-          return inputs.dictionary[inputs.newKey];
+          return inputs.dictionary;
         }
 
         // If force is `false` and the key already exists, we know this exit should
