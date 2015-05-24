@@ -102,6 +102,7 @@ module.exports = {
 
         // If force is `false` and the key already exists, this exit should
         // not be traversed, so we don't need to worry about it.
+        return;
       }
     }
 

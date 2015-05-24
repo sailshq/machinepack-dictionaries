@@ -63,6 +63,8 @@ module.exports = {
         }
 
         // Otherwise we have enough information to send back a guaranteed example.
+        // (we don't know for sure that the key will exist, but we know what type schema
+        //  to expect _if it does_)
         delete inputs.dictionary[inputs.key];
         return inputs.dictionary;
       }

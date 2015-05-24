@@ -53,6 +53,11 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
 
+    noSuchKey: {
+      friendlyName: 'no such key',
+      description: 'The specified key does not exist.'
+    },
+
     keyAlreadyExists: {
       friendlyName: 'key already exists',
       description: 'An existing key is already using the specified name for the new key.',
@@ -65,16 +70,52 @@ module.exports = {
       getExample: function (inputs, env){
         var _ = env._;
 
-        var value = inputs.dictionary[inputs.originalKey];
-        if (_.isUndefined(value)) {
-          return exits.noSuchKey();
+        // If `dictionary` is not available yet, the best we can do is set the
+        // exit example to `{}`, since we don't have enough information.
+        if (_.isUndefined(inputs.dictionary)) {
+          return {};
         }
 
-        if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
-          return;
+        // If `originalKey` is not available yet, the best we can do is set exit example
+        // to `{}` because, although we know the initial properties of the dictionary,
+        // we don't know what type of value the original key had.
+        if (_.isUndefined(inputs.originalKey)) {
+          return {};
         }
-        inputs.dictionary[inputs.newKey] = value;
-        return inputs.dictionary;
+
+        // If `newKey` is not available yet, the best we can do is set exit example
+        // to `{}` because, although we know the initial properties of the dictionary,
+        // and which key is being copied, we don't know the name of the key to add.
+        if (_.isUndefined(inputs.newKey)) {
+          return {};
+        }
+
+        // If `dictionary[originalKey]` is undefined, we aren't sure yet what type
+        // it will be, so we don't know what type to make the new value, which means
+        // the best we can do is send back a `{}`.  It's also possible `noSuchKey` will
+        // trigger instead.
+        if (_.isUndefined(inputs.dictionary[inputs.originalKey])) {
+          return {};
+        }
+
+        // If `force` is true, we know for sure that the new key will exist, even
+        // if there is an old key in the way.
+        if (inputs.force) {
+          inputs.dictionary[inputs.newKey] = inputs.dictionary[inputs.originalKey];
+          return inputs.dictionary;
+        }
+
+        // If force is `false` and the key DOES NOT already exist, we may think the
+        // resulting dictionary will have the new key value, but it is also possible
+        // that the existing value at that key is just not available yet either.
+        // So the best we can do is send back `{}`.
+        if (!inputs.force && _.isUndefined(inputs.dictionary[inputs.newKey])) {
+          return {};
+        }
+
+        // If force is `false` and the key already exists, this exit should
+        // not be traversed, so we don't need to worry about it.
+        return;
       }
     }
 
