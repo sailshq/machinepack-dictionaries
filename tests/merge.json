@@ -8,7 +8,7 @@
       },
       "outcome": "success",
       "returns": {
-        "age": "9",
+        "age": 9,
         "fullName": "Bran Stark",
         "direwolf": {
           "name": "Summer"
@@ -52,7 +52,7 @@
         "direwolf": {
           "name": "Summer"
         },
-        "age": "9"
+        "age": 9
       }
     },
     {
@@ -64,7 +64,7 @@
       "returns": {
         "fullName": "Bran Stark",
         "direwolf": "Ghost",
-        "age": "9"
+        "age": 9
       }
     }
   ]
