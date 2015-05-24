@@ -78,27 +78,11 @@ module.exports = {
   fn: function(inputs, exits) {
     var _ = require('lodash');
 
-    var subtree = inputs.dictionary;
-    try {
-      _.each(inputs.keypath.split('.'), function (subkey){
-        // Short-circuit when an undefined subtree is discovered
-        // to avoid dealing w/ `.code` negotiation w/i the try/catch.
-        if (_.isUndefined(subtree)) {
-          return subtree;
-        }
-        subtree = subtree[subkey];
-      });
-    }
-    catch (e) {
-      return exits.error(e);
-    }
-
-    // key does not exist
-    if (_.isUndefined(subtree)) {
+    var value = _.get(inputs.dictionary, inputs.keypath);
+    if (_.isUndefined(value)) {
       return exits.noSuchKey();
     }
-
-    return exits.success(subtree);
+    return exits.success(value);
   }
 
 };
