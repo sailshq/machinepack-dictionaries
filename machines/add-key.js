@@ -92,18 +92,16 @@ module.exports = {
           return inputs.dictionary;
         }
 
-        // If force is `false` and the key DOES NOT already exist, we know the
-        // resulting dictionary will have the new key value,
-        if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
-          inputs.dictionary[inputs.newKey] = inputs.value;
-          return inputs.dictionary;
+        // If force is `false` and the key DOES NOT already exist, we may think the
+        // resulting dictionary will have the new key value, but it is also possible
+        // that the existing value at that key is just not available yet either.
+        // So the best we can do is send back `{}`.
+        if (!inputs.force && _.isUndefined(inputs.dictionary[inputs.newKey])) {
+          return {};
         }
 
-        // If force is `false` and the key already exists, we know this exit should
-        // not be traversed, so we will return `undefined`.
-        if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
-          return undefined;
-        }
+        // If force is `false` and the key already exists, this exit should
+        // not be traversed, so we don't need to worry about it.
       }
     }
 
