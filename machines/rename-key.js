@@ -7,9 +7,6 @@ module.exports = {
   description: 'Rename a key in a dictionary and return the result (a new dictionary).',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
@@ -48,9 +45,6 @@ module.exports = {
     }
 
   },
-
-
-
 
 
   exits: {
