@@ -47,9 +47,22 @@ module.exports = {
       friendlyName: 'then',
       description: 'Done.',
       getExample: function (inputs, env){
-        if (env._.isUndefined(inputs.dictionary[inputs.key])){
-          return;
+        var _ = env._;
+
+        // If `dictionary` is not available yet, the best we can do is set the
+        // exit example to `{}`, since we don't have enough information.
+        if (_.isUndefined(inputs.dictionary)) {
+          return {};
         }
+
+        // If `key` is not available yet, the best we can do is set exit example
+        // to `{}` because, although we know the initial properties of the dictionary,
+        // we don't know which key will be removed in the results.
+        if (_.isUndefined(inputs.key)) {
+          return {};
+        }
+
+        // Otherwise we have enough information to send back a guaranteed example.
         delete inputs.dictionary[inputs.key];
         return inputs.dictionary;
       }
