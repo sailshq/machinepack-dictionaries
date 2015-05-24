@@ -17,7 +17,7 @@ module.exports = {
 
     dictionary: {
       description: 'The dictionary to construct.',
-      typeclass: 'dictionary',
+      example: {},
       required: true
     }
 

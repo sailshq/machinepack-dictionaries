@@ -18,7 +18,7 @@ module.exports = {
     dictionary: {
       friendlyName: 'Dictionary',
       description: 'The dictionary whose keys will be listed.',
-      typeclass: 'dictionary',
+      example: {},
       required: true
     }
 

@@ -7,9 +7,6 @@ module.exports = {
   description: 'Add a new key to a dictionary.',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
@@ -21,7 +18,7 @@ module.exports = {
     dictionary: {
       friendlyName: 'Dictionary',
       description: 'The dictionary where the new key will be added.',
-      typeclass: 'dictionary',
+      example: {},
       required: true
     },
 
@@ -35,7 +32,7 @@ module.exports = {
     value: {
       friendlyName: 'Value',
       description: 'The value to associate with the new key.',
-      typeclass: '*',
+      example: '*',
       required: true
     },
 
@@ -43,14 +40,10 @@ module.exports = {
       friendlyName: 'Overwrite?',
       description: 'Whether to overwrite an existing key with the same name if there is a conflict.',
       example: true,
-      defaultsTo: true,
-      advanced: true
+      defaultsTo: true
     }
 
   },
-
-
-  defaultExit: 'success',
 
 
   exits: {
@@ -71,12 +64,46 @@ module.exports = {
       getExample: function (inputs, env){
         var _ = env._;
 
-        var force = _.isUndefined(inputs.force) ? true : inputs.force;
-        if (!force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
-          return;
+        // If no `dictionary` or `newKey` is available yet, the best we can do
+        // is set the exit example to `{}`, since we don't have enough information.
+        if (_.isUndefined(inputs.dictionary) || _.isUndefined(inputs.newKey)) {
+          return {};
         }
-        inputs.dictionary[inputs.newKey] = inputs.value;
-        return inputs.dictionary;
+
+        // If `force` is undefined, we aren't sure yet whether or not the new key
+        // will replace the old.  So whether or not an old key exists, we must fall
+        // back to sending down a `{}` (because the old key/value could have fallen
+        // back to `undefined` because it was indeterminate, which means it MIGHT be
+        // there)
+        if (_.isUndefined(inputs.force)) {
+          return {};
+        }
+
+        // If `value` is undefined, we aren't sure yet what type it will be, so
+        // the best we can do is send back a `{}`.
+        if (_.isUndefined(inputs.value)) {
+          return {};
+        }
+
+        // If `force` is true, we know for sure that the new key will exist, even
+        // if there is an old key in the way.
+        if (inputs.force) {
+          inputs.dictionary[inputs.newKey] = inputs.value;
+          return inputs.dictionary[inputs.newKey];
+        }
+
+        // If force is `false` and the key DOES NOT already exist, we know the
+        // resulting dictionary will have the new key value,
+        if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
+          inputs.dictionary[inputs.newKey] = inputs.value;
+          return inputs.dictionary[inputs.newKey];
+        }
+
+        // If force is `false` and the key already exists, we know this exit should
+        // not be traversed, so we will return `undefined`.
+        if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
+          return undefined;
+        }
       }
     }
 
@@ -86,8 +113,7 @@ module.exports = {
   fn: function(inputs, exits) {
     var _ = require('lodash');
 
-    var force = _.isUndefined(inputs.force) ? true : inputs.force;
-    if (!force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
+    if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
       return exits.keyAlreadyExists();
     }
     inputs.dictionary[inputs.newKey] = inputs.value;

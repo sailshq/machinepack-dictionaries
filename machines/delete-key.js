@@ -21,7 +21,7 @@ module.exports = {
     dictionary: {
       friendlyName: 'Dictionary',
       description: 'The dictionary to delete the key from.',
-      typeclass: 'dictionary',
+      example: {},
       required: true
     },
 

@@ -21,7 +21,7 @@ module.exports = {
     dictionary: {
       friendlyName: 'Dictionary',
       description: 'The dictionary to dereference',
-      typeclass: 'dictionary',
+      example: {},
       required: true
     },
 

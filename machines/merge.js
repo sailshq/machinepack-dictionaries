@@ -20,13 +20,13 @@ module.exports = {
 
     primary: {
       description: 'The dictionary whose keys will take precedence.',
-      typeclass: 'dictionary',
+      example: {},
       required: true
     },
 
     secondary: {
       description: 'The dictionary whose keys may be overridden by `primary`.',
-      typeclass: 'dictionary',
+      example: {},
       required: true
     }
 

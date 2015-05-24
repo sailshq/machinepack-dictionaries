@@ -21,7 +21,7 @@ module.exports = {
     dictionary: {
       friendlyName: 'Dictionary',
       description: 'The dictionary where the key will be copied.',
-      typeclass: 'dictionary',
+      example: {},
       required: true
     },
 
@@ -76,8 +76,7 @@ module.exports = {
           return exits.noSuchKey();
         }
 
-        var force = _.isUndefined(inputs.force) ? true : inputs.force;
-        if (!force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
+        if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
           return;
         }
         inputs.dictionary[inputs.newKey] = value;
