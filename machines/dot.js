@@ -7,9 +7,6 @@ module.exports = {
   description: 'Get the value associated with a particular key in a dictionary.',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
@@ -51,16 +48,27 @@ module.exports = {
       friendlyName: 'then',
       description: 'Done.',
       getExample: function (inputs,env){
-        var subtree = inputs.dictionary;
-        try {
-          env._.each(inputs.keypath.split('.'), function (subkey){
-            subtree = subtree[subkey];
-          });
-        }
-        catch (e) {
+        var _ = env._;
+
+        // If no `dictionary` is available yet, the best we can do is set the exit example
+        // to `undefined`, since we don't have enough information.
+        if (_.isUndefined(inputs.dictionary)) {
           return;
         }
-        return subtree;
+
+        // If no `keypath` is available yet, the best we can do is set the exit example
+        // to `undefined`, since we don't have enough information.
+        if (_.isUndefined(inputs.keypath)) {
+          return;
+        }
+
+        // Take a look at the value that's currently at the requested keypath
+        var valueAtKeypath = _.get(inputs.dictionary, inputs.keypath);
+        // If it is defined, then we can use it.  Otherwise, we can't.
+        if (_.isUndefined(valueAtKeypath)) {
+          return;
+        }
+        return valueAtKeypath;
       }
     }
 

@@ -7,9 +7,6 @@ module.exports = {
   description: 'Delete a key from a dictionary and return the result (a new dictionary).',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 

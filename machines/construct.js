@@ -33,7 +33,16 @@ module.exports = {
     success: {
       friendlyName: 'then',
       description: 'Done.',
-      getExample: function(inputs, exits) {
+      getExample: function(inputs, env) {
+        var _ = env._;
+
+        // If no `dictionary` is available yet, the best we can do is set the exit example
+        // to `{}`, since we don't have enough information.  At least we know it will be a
+        // dictionary.
+        if (_.isUndefined(inputs.dictionary)) {
+          return {};
+        }
+
         return inputs.dictionary;
       }
     }

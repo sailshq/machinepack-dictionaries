@@ -7,9 +7,6 @@ module.exports = {
   description: 'Copy a key in a dictionary and return the result (a new dictionary).',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
