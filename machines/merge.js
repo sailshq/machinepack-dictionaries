@@ -33,7 +33,7 @@ module.exports = {
   },
 
 
-  defaultExit: 'success',
+
 
 
   exits: {
