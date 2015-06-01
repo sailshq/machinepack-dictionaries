@@ -3,8 +3,15 @@
   "expectations": [
     {
       "using": {
-        "primary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
-        "secondary": "{\"age\": 9}"
+        "primary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
+        "secondary": {
+          "age": 9
+        }
       },
       "outcome": "success",
       "returns": {
@@ -17,8 +24,15 @@
     },
     {
       "using": {
-        "primary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
-        "secondary": "{\"fullName\": \"Branden Stark\" }"
+        "primary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
+        "secondary": {
+          "fullName": "Branden Stark"
+        }
       },
       "outcome": "success",
       "returns": {
@@ -30,8 +44,15 @@
     },
     {
       "using": {
-        "primary": "{\"fullName\": \"Branden Stark\" }",
-        "secondary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }"
+        "primary": {
+          "fullName": "Branden Stark"
+        },
+        "secondary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        }
       },
       "outcome": "success",
       "returns": {
@@ -43,8 +64,16 @@
     },
     {
       "using": {
-        "primary": "{\"fullName\": \"Branden Stark\", \"age\": 9 }",
-        "secondary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }"
+        "primary": {
+          "fullName": "Branden Stark",
+          "age": 9
+        },
+        "secondary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        }
       },
       "outcome": "success",
       "returns": {
@@ -57,8 +86,16 @@
     },
     {
       "using": {
-        "primary": "{\"direwolf\": \"Ghost\", \"age\": 9 }",
-        "secondary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }"
+        "primary": {
+          "direwolf": "Ghost",
+          "age": 9
+        },
+        "secondary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        }
       },
       "outcome": "success",
       "returns": {

@@ -2,13 +2,13 @@
   "machine": "delete-key",
   "expectations": [
     {
-      "todo": true,
-      "using": {},
-      "outcome": "success"
-    },
-    {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "key": "fullName"
       },
       "outcome": "success",
@@ -20,7 +20,12 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "key": "direwolf"
       },
       "outcome": "success",
@@ -30,7 +35,12 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "key": "some key that totally does not exist"
       },
       "outcome": "noSuchKey"

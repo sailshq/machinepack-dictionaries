@@ -3,7 +3,9 @@
   "expectations": [
     {
       "using": {
-        "dictionary": "{ \"\": \"why would you ever have an empty string key anyways?  Who knows?!\" }"
+        "dictionary": {
+          "": "why would you ever have an empty string key anyways?  Who knows?!"
+        }
       },
       "outcome": "success",
       "returns": [
@@ -12,7 +14,12 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\":\"Bran Stark\",\"direwolf\":{\"name\":\"Summer\"}}"
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        }
       },
       "outcome": "success",
       "returns": [
@@ -22,7 +29,7 @@
     },
     {
       "using": {
-        "dictionary": "{}"
+        "dictionary": {}
       },
       "outcome": "success"
     }

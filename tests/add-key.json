@@ -3,18 +3,34 @@
   "expectations": [
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
-        "newKey": "\"age\"",
-        "value": "9"
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
+        "newKey": "age",
+        "value": 9
       },
       "outcome": "success",
-      "returns": {"fullName":"Bran Stark","direwolf":{"name":"Summer"},"age":9}
+      "returns": {
+        "fullName": "Bran Stark",
+        "direwolf": {
+          "name": "Summer"
+        },
+        "age": 9
+      }
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "newKey": "fullName",
-        "value": "Mr. Bran"
+        "value": "\"Mr. Bran\""
       },
       "outcome": "success",
       "returns": {
@@ -26,10 +42,15 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "newKey": "fullName",
-        "value": "Mr. Bran",
-        "force": "true"
+        "value": "\"Mr. Bran\"",
+        "force": true
       },
       "outcome": "success",
       "returns": {
@@ -41,19 +62,29 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "newKey": "fullName",
-        "value": "Mr. Bran",
-        "force": "false"
+        "value": "\"Mr. Bran\"",
+        "force": false
       },
       "outcome": "keyAlreadyExists"
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "newKey": "fullSalutation",
-        "value": "Mr. Bran",
-        "force": "false"
+        "value": "\"Mr. Bran\"",
+        "force": false
       },
       "outcome": "success",
       "returns": {

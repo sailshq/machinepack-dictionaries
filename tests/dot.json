@@ -3,7 +3,12 @@
   "expectations": [
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "keypath": "direwolf"
       },
       "outcome": "success",
@@ -13,7 +18,12 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "keypath": "direwolf.name"
       },
       "outcome": "success",
@@ -21,7 +31,12 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "keypath": "fullName"
       },
       "outcome": "success",
@@ -29,14 +44,24 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "keypath": "age"
       },
       "outcome": "noSuchKey"
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "keypath": "direwolf.age"
       },
       "outcome": "noSuchKey"

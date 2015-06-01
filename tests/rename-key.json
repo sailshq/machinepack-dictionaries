@@ -3,7 +3,12 @@
   "expectations": [
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "originalKey": "fullName",
         "newKey": "name"
       },
@@ -17,10 +22,15 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "originalKey": "fullName",
         "newKey": "fullName",
-        "force": "false"
+        "force": false
       },
       "outcome": "success",
       "returns": {
@@ -32,19 +42,29 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "originalKey": "fullName",
         "newKey": "direwolf",
-        "force": "false"
+        "force": false
       },
       "outcome": "keyAlreadyExists"
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "originalKey": "fullName",
         "newKey": "direwolf",
-        "force": "true"
+        "force": true
       },
       "outcome": "success",
       "returns": {
@@ -53,7 +73,12 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "originalKey": "fullName",
         "newKey": "direwolf"
       },
@@ -64,7 +89,12 @@
     },
     {
       "using": {
-        "dictionary": "{\"fullName\": \"Bran Stark\", \"direwolf\": { \"name\": \"Summer\" } }",
+        "dictionary": {
+          "fullName": "Bran Stark",
+          "direwolf": {
+            "name": "Summer"
+          }
+        },
         "originalKey": "something that totally does not exist",
         "newKey": "direwolf"
       },

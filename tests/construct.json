@@ -3,13 +3,18 @@
   "expectations": [
     {
       "using": {
-        "dictionary": "{}"
+        "dictionary": {}
       },
       "outcome": "success"
     },
     {
       "using": {
-        "dictionary": "{\"foo\": [\"bar\", \"baz\"]}"
+        "dictionary": {
+          "foo": [
+            "bar",
+            "baz"
+          ]
+        }
       },
       "outcome": "success",
       "returns": {
