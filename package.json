@@ -1,6 +1,6 @@
 {
   "name": "machinepack-dictionaries",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Work with dictionaries.",
   "scripts": {
     "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
