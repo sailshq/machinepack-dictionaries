@@ -51,15 +51,15 @@ module.exports = {
         var _ = env._;
 
         // If no `dictionary` is available yet, the best we can do is set the exit example
-        // to `undefined`, since we don't have enough information.
+        // to `*`, since we don't have enough information.
         if (_.isUndefined(inputs.dictionary)) {
-          return;
+          return '*';
         }
 
         // If no `keypath` is available yet, the best we can do is set the exit example
-        // to `undefined`, since we don't have enough information.
+        // to `*`, since we don't have enough information.
         if (_.isUndefined(inputs.keypath)) {
-          return;
+          return '*';
         }
 
         // Take a look at the value that's currently at the requested keypath
