@@ -15,10 +15,10 @@
   "dependencies": {
     "browserify-transform-machinepack": "^1.0.0",
     "lodash": "^3.7.0",
-    "machine": "^9.0.1"
+    "machine": "^10.3.1"
   },
   "devDependencies": {
-    "test-machinepack-mocha": "^2.0.0"
+    "test-machinepack-mocha": "^2.1.1"
   },
   "browserify": {
     "transform": [
