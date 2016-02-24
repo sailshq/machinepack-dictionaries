@@ -27,6 +27,7 @@ module.exports = {
       description: 'The key to look up (can be nested, e.g. "avatar" or "avatar.sizeInBytes")',
       extendedDescription: 'Note that this means that you cannot use this machine to grab the value of keys that **actually** have a dot (.) in them.',
       example: 'mom.email',
+      constant: true,
       required: true
     }
 
