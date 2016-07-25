@@ -10,13 +10,12 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     dictionary: {
-      friendlyName: 'Dictionary',
       description: 'The dictionary whose keys will be listed.',
       example: {},
       required: true
@@ -27,14 +26,10 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
     success: {
-      friendlyName: 'then',
-      description: 'Done.',
-      example: ['email']
+      outputFriendlyName: 'Keys',
+      outputDescription: 'The array of keys from the specified dictionary.',
+      outputExample: ['email']
     }
 
   },

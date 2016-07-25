@@ -10,27 +10,24 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     dictionary: {
-      friendlyName: 'Dictionary',
       description: 'The dictionary to rename the key in.',
       example: {},
       required: true
     },
 
     originalKey: {
-      friendlyName: 'Original key',
       description: 'The key to rename.',
       example: 'studentName',
       required: true
     },
 
     newKey: {
-      friendlyName: 'New key',
       description: 'A new name for the key.',
       example: 'studentFullName',
       required: true
@@ -41,7 +38,6 @@ module.exports = {
       description: 'Whether to overwrite an existing key with the same name if there is a conflict.',
       example: true,
       defaultsTo: true,
-      advanced: true
     }
 
   },
@@ -49,24 +45,9 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
-    noSuchKey: {
-      friendlyName: 'no such key',
-      description: 'The specified key does not exist.'
-    },
-
-    keyAlreadyExists: {
-      friendlyName: 'key already exists',
-      description: 'An existing key is already using the specified name for the new key.',
-      extendedDescription: 'You can force this machine to overwrite the existing key by enabling the `force` input.'
-    },
-
     success: {
-      friendlyName: 'then',
-      description: 'Done.',
+      outputFriendlyName: 'Dictionary with renamed key',
+      outputDescription: 'The input dictionary with the specifed key renamed.',
       getExample: function (inputs, env){
 
         var _ = env._;
@@ -119,7 +100,16 @@ module.exports = {
         // not be traversed, so we don't need to worry about it.
         return;
       }
-    }
+    },
+
+    noSuchKey: {
+      description: 'The specified key does not exist.'
+    },
+
+    keyAlreadyExists: {
+      description: 'An existing key is already using the specified name for the new key.',
+      extendedDescription: 'You can force this machine to overwrite the existing key by enabling the `force` input.'
+    },
 
   },
 

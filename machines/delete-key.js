@@ -10,20 +10,18 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     dictionary: {
-      friendlyName: 'Dictionary',
       description: 'The dictionary to delete the key from.',
       example: {},
       required: true
     },
 
     key: {
-      friendlyName: 'Key',
       description: 'The key to delete.',
       example: 'password',
       required: true
@@ -34,18 +32,9 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
-    noSuchKey: {
-      friendlyName: 'no such key',
-      description: 'The specified key does not exist.'
-    },
-
     success: {
-      friendlyName: 'then',
-      description: 'Done.',
+      outputFriendlyName: 'Dictionary with key deleted',
+      outputDescription: 'The input dictionary with the specified key removed.',
       getExample: function (inputs, env){
         var _ = env._;
 
@@ -68,6 +57,10 @@ module.exports = {
         delete inputs.dictionary[inputs.key];
         return inputs.dictionary;
       }
+    },
+
+    noSuchKey: {
+      description: 'The specified key does not exist.'
     }
 
   },

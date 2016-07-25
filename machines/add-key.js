@@ -10,27 +10,24 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     dictionary: {
-      friendlyName: 'Dictionary',
       description: 'The dictionary where the new key will be added.',
       example: {},
       required: true
     },
 
     newKey: {
-      friendlyName: 'New key',
       description: 'A name for the new key.',
       example: 'twitterUsername',
       required: true
     },
 
     value: {
-      friendlyName: 'Value',
       description: 'The value to associate with the new key.',
       example: '*',
       required: true
@@ -48,19 +45,9 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
-    keyAlreadyExists: {
-      friendlyName: 'key already exists',
-      description: 'An existing key is already using the specified name for the new key.',
-      extendedDescription: 'You can force this machine to overwrite the existing key by enabling the `force` input.'
-    },
-
     success: {
-      friendlyName: 'then',
-      description: 'Done.',
+      outputFriendlyName: 'Dictionary with key added',
+      outputDescription: 'The result of adding the specified key to the given dictionary.',
       getExample: function (inputs, env){
         var _ = env._;
 
@@ -104,7 +91,14 @@ module.exports = {
         // not be traversed, so we don't need to worry about it.
         return;
       }
-    }
+    },
+
+
+    keyAlreadyExists: {
+      description: 'An existing key is already using the specified name for the new key.',
+      extendedDescription: 'You can force this machine to overwrite the existing key by enabling the `force` input.'
+    },
+
 
   },
 

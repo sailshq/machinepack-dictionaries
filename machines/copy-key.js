@@ -10,13 +10,12 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     dictionary: {
-      friendlyName: 'Dictionary',
       description: 'The dictionary where the key will be copied.',
       example: {},
       required: true
@@ -30,7 +29,6 @@ module.exports = {
     },
 
     newKey: {
-      friendlyName: 'New key',
       description: 'A name for the new key.',
       example: 'twitterUsername',
       required: true
@@ -41,7 +39,6 @@ module.exports = {
       description: 'Whether to overwrite an existing key with the same name if there is a conflict.',
       example: true,
       defaultsTo: true,
-      advanced: true
     }
 
   },
@@ -49,24 +46,9 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
-    noSuchKey: {
-      friendlyName: 'no such key',
-      description: 'The specified key does not exist.'
-    },
-
-    keyAlreadyExists: {
-      friendlyName: 'key already exists',
-      description: 'An existing key is already using the specified name for the new key.',
-      extendedDescription: 'You can force this machine to overwrite the existing key by enabling the `force` input.'
-    },
-
     success: {
-      friendlyName: 'then',
-      description: 'Done.',
+      outputFriendlyName: 'Dictionary with copied key',
+      outputDescription: 'The destination dictionary, with the specified key from the source dictionary added.',
       getExample: function (inputs, env){
         var _ = env._;
 
@@ -117,7 +99,17 @@ module.exports = {
         // not be traversed, so we don't need to worry about it.
         return;
       }
-    }
+    },
+
+
+    noSuchKey: {
+      description: 'The specified key does not exist.'
+    },
+
+    keyAlreadyExists: {
+      description: 'An existing key is already using the specified name for the new key.',
+      extendedDescription: 'You can force this machine to overwrite the existing key by enabling the `force` input.'
+    },
 
   },
 

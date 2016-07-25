@@ -10,7 +10,7 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
@@ -26,13 +26,9 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
     success: {
-      friendlyName: 'then',
-      description: 'Done.',
+      outputFriendlyName: 'New dictionary',
+      outputDescription: 'The new dictionary.',
       getExample: function(inputs, env) {
         var _ = env._;
 

@@ -4,16 +4,13 @@ module.exports = {
   friendlyName: 'Merge dictionaries',
 
 
-  description: 'Merge two dictionaries together and return the result (a new dictionary)',
+  description: 'Merge two dictionaries together and return the result (a new dictionary).',
 
 
   sync: true,
 
 
-  cacheable: true,
-
-
-  extendedDescription: '',
+  sideEffects: 'cacheable',
 
 
   inputs: {
@@ -35,13 +32,9 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
     success: {
-      friendlyName: 'then',
-      description: 'Done.',
+      outputFriendlyName: 'Merged dictionary',
+      outputDescription: 'The result of merging the primary and secondary dictionaries.',
       getExample: function(inputs, env) {
         var _ = env._;
 

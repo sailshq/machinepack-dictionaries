@@ -10,21 +10,20 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     dictionary: {
-      friendlyName: 'Dictionary',
-      description: 'The dictionary to dereference',
+      description: 'The dictionary to dereference.',
       example: {},
       required: true
     },
 
     keypath: {
       friendlyName: 'Key',
-      description: 'The key to look up (can be nested, e.g. "avatar" or "avatar.sizeInBytes")',
+      description: 'The key to look up (can be nested, e.g. "avatar" or "avatar.sizeInBytes").',
       extendedDescription: 'Note that this means that you cannot use this machine to grab the value of keys that **actually** have a dot (.) in them.',
       example: 'mom.email',
       constant: true,
@@ -36,18 +35,9 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
-    noSuchKey: {
-      friendlyName: 'no such key',
-      description: 'The specified key does not exist.'
-    },
-
     success: {
-      friendlyName: 'then',
-      description: 'Done.',
+      outputFriendlyName: 'Key value',
+      outputDescription: 'The value at the specified key path of the input dictionary.',
       getExample: function (inputs,env){
         var _ = env._;
 
@@ -71,7 +61,11 @@ module.exports = {
         }
         return valueAtKeypath;
       }
-    }
+    },
+
+    noSuchKey: {
+      description: 'The specified key does not exist.'
+    },
 
   },
 
