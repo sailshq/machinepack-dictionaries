@@ -31,7 +31,6 @@
     "machines": [
       "merge",
       "construct",
-      "dot",
       "delete-key",
       "rename-key",
       "copy-key",
