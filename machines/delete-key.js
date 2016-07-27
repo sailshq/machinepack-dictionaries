@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Delete key',
+  friendlyName: 'Delete dictionary key',
 
 
   description: 'Delete a key from a dictionary and return the result (a new dictionary).',
@@ -67,10 +67,18 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
+
+    // If the key we're supposed to delete doesn't exist in the input dictionary,
+    // return through the `noSuchKey` exit.
     if (_.isUndefined(inputs.dictionary[inputs.key])){
       return exits.noSuchKey();
     }
+
+    // Otherwise delete the key and return the resulting dictionary throug the
+    // `success` exit.
     delete inputs.dictionary[inputs.key];
     return exits.success(inputs.dictionary);
   }

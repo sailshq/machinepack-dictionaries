@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Add new key',
+  friendlyName: 'Add new dictionary key',
 
 
   description: 'Add a new key to a dictionary.',
@@ -16,13 +16,13 @@ module.exports = {
   inputs: {
 
     dictionary: {
-      description: 'The dictionary where the new key will be added.',
+      description: 'The dictionary to which the new key will be added.',
       example: {},
       required: true
     },
 
     newKey: {
-      description: 'A name for the new key.',
+      description: 'The name for the new key.',
       example: 'twitterUsername',
       required: true
     },
@@ -104,13 +104,21 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
 
+    // If the "force" option isn't used, and there is already a kew with the
+    // specified name, return through the `keyAlreadyExists` exit.
     if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
       return exits.keyAlreadyExists();
     }
+
+    // Otherwise add the new key/value pair and return the resulting dictionary
+    // through the `success` exit.
     inputs.dictionary[inputs.newKey] = inputs.value;
     return exits.success(inputs.dictionary);
+
   }
 
 };

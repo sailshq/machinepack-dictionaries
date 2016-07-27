@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Copy key',
+  friendlyName: 'Copy dictionary key',
 
 
-  description: 'Copy a key in a dictionary and return the result (a new dictionary).',
+  description: 'Copy a key in a dictionary (giving it a new name) and return the result (a new dictionary).',
 
 
   sync: true,
@@ -16,7 +16,7 @@ module.exports = {
   inputs: {
 
     dictionary: {
-      description: 'The dictionary where the key will be copied.',
+      description: 'The dictionary within which the key will be copied.',
       example: {},
       required: true
     },
@@ -29,7 +29,7 @@ module.exports = {
     },
 
     newKey: {
-      description: 'A name for the new key.',
+      description: 'The name for the new key.',
       example: 'twitterUsername',
       required: true
     },
@@ -115,19 +115,30 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
 
+    // First, try to the value of the key we're trying to copy.
     var value = inputs.dictionary[inputs.originalKey];
+
+    // If it doesn't exist in the input dictionary, return through the
+    // `noSuchKey` exit.
     if (_.isUndefined(value)) {
       return exits.noSuchKey();
     }
 
+    // If the `force` option is not specified, and a key with the specified
+    // `newKey` name already exists, return through the `keyAlreadyExits` exit.
     var force = _.isUndefined(inputs.force) ? true : inputs.force;
     if (!force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
       return exits.keyAlreadyExists();
     }
 
+    // Add the new key, using the value from the key we're copying.
     inputs.dictionary[inputs.newKey] = value;
+
+    // Return the new dictionary through the `success` exit.
     return exits.success(inputs.dictionary);
   }
 

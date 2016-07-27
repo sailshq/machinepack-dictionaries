@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Rename key',
+  friendlyName: 'Rename dictionary key',
 
 
   description: 'Rename a key in a dictionary and return the result (a new dictionary).',
@@ -28,7 +28,7 @@ module.exports = {
     },
 
     newKey: {
-      description: 'A new name for the key.',
+      description: 'The new name for the key.',
       example: 'studentFullName',
       required: true
     },
@@ -115,16 +115,29 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
 
+    // Try to find the value of the key we're trying to rename.
     var value = inputs.dictionary[inputs.originalKey];
+
+    // If we can't find it, leave through the `noSuchKey` exit.
     if (_.isUndefined(value)) {
       return exits.noSuchKey();
     }
+
+    // Delete the key we're trying to rename.
     delete inputs.dictionary[inputs.originalKey];
+
+    // If `force` is not set, and there is an existing key with the name that
+    // we want to rename our original key to, then leave through the `keyAlreadyExists` exit.
     if (!inputs.force && !_.isUndefined(inputs.dictionary[inputs.newKey])) {
       return exits.keyAlreadyExists();
     }
+
+    // Otherwise set the new key name to the old key's value, and return the
+    // resulting dictionary through the `success` exit.
     inputs.dictionary[inputs.newKey] = value;
     return exits.success(inputs.dictionary);
   }

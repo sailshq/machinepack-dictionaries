@@ -62,8 +62,11 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
 
+    // Merge the two dictionaries and return the result through the `success` exit.
     return exits.success(_.merge(_.merge({}, inputs.secondary), inputs.primary));
   }
 

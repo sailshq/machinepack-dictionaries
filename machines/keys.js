@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'List keys',
+  friendlyName: 'List dictionary keys',
 
 
   description: 'List all the keys in the provided dictionary.',
@@ -36,6 +36,8 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Return an array of the input dictionary's keys through the `success` exit.
     return exits.success(Object.keys(inputs.dictionary));
   }
 

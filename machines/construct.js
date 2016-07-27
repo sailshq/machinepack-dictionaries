@@ -47,7 +47,10 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Simply return the input dictionary through the `success` exit.
     return exits.success(inputs.dictionary);
+
   }
 
 };
