@@ -39,7 +39,7 @@ module.exports = {
           return {};
         }
 
-        return inputs.dictionary;
+        return env.rttc.coerceExemplar(inputs.dictionary, false, false, true);
       }
     }
 

@@ -24,7 +24,8 @@ module.exports = {
     key: {
       description: 'The key to delete.',
       example: 'password',
-      required: true
+      required: true,
+      constant: true
     }
 
   },
@@ -55,7 +56,7 @@ module.exports = {
         // (we don't know for sure that the key will exist, but we know what type schema
         //  to expect _if it does_)
         delete inputs.dictionary[inputs.key];
-        return inputs.dictionary;
+        return env.rttc.coerceExemplar(inputs.dictionary, false, false, true);
       }
     },
 

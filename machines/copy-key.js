@@ -25,13 +25,15 @@ module.exports = {
       friendlyName: 'Existing key',
       description: 'The name of the existing key whose value will be copied.',
       example: 'githubUsername',
-      required: true
+      required: true,
+      constant: true
     },
 
     newKey: {
       description: 'The name for the new key.',
       example: 'twitterUsername',
-      required: true
+      required: true,
+      constant: true
     },
 
     force: {
@@ -84,7 +86,7 @@ module.exports = {
         // if there is an old key in the way.
         if (inputs.force) {
           inputs.dictionary[inputs.newKey] = inputs.dictionary[inputs.originalKey];
-          return inputs.dictionary;
+          return env.rttc.coerceExemplar(inputs.dictionary, false, false, true);
         }
 
         // If force is `false` and the key DOES NOT already exist, we may think the

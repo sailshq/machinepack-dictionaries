@@ -24,13 +24,15 @@ module.exports = {
     originalKey: {
       description: 'The key to rename.',
       example: 'studentName',
-      required: true
+      required: true,
+      constant: true
     },
 
     newKey: {
       description: 'The new name for the key.',
       example: 'studentFullName',
-      required: true
+      required: true,
+      constant: true
     },
 
     force: {
@@ -85,7 +87,7 @@ module.exports = {
         if (inputs.force) {
           inputs.dictionary[inputs.newKey] = inputs.dictionary[inputs.originalKey];
           delete inputs.dictionary[inputs.originalKey];
-          return inputs.dictionary;
+          return env.rttc.coerceExemplar(inputs.dictionary, false, false, true);
         }
 
         // If force is `false` and the key DOES NOT already exist, we may think the
