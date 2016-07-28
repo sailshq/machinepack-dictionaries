@@ -54,7 +54,7 @@ module.exports = {
         }
 
         // If both are defined, we can calculate the example.
-        return _.merge(_.merge({}, inputs.secondary), inputs.primary);
+        return env.rttc.coerceExemplar(_.merge(inputs.secondary, inputs.primary), false, false, true);
       }
     }
 
@@ -67,7 +67,7 @@ module.exports = {
     var _ = require('lodash');
 
     // Merge the two dictionaries and return the result through the `success` exit.
-    return exits.success(_.merge(_.merge({}, inputs.secondary), inputs.primary));
+    return exits.success(_.merge(inputs.secondary, inputs.primary));
   }
 
 
