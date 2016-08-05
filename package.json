@@ -30,7 +30,6 @@
     "machineDir": "machines/",
     "machines": [
       "merge",
-      "construct",
       "delete-key",
       "rename-key",
       "copy-key",
