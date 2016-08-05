@@ -105,11 +105,11 @@ module.exports = {
 
 
     noSuchKey: {
-      description: 'The specified key does not exist.'
+      description: 'No key with the specified name could be found in the input dictionary.'
     },
 
     keyAlreadyExists: {
-      description: 'An existing key is already using the specified name for the new key.',
+      description: 'An existing key in the input dictionary was already using the specified name for the new key.',
       extendedDescription: 'You can force this machine to overwrite the existing key by enabling the `force` input.'
     },
 

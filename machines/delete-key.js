@@ -61,8 +61,8 @@ module.exports = {
     },
 
     noSuchKey: {
-      description: 'The specified key does not exist.'
-    }
+      description: 'No key with the specified name could be found in the input dictionary.'
+    },
 
   },
 
