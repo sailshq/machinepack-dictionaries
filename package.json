@@ -15,7 +15,7 @@
   "dependencies": {
     "browserify-transform-machinepack": "^1.0.0",
     "lodash": "^3.7.0",
-    "machine": "^12.4.0"
+    "machine": "^13.0.0-0"
   },
   "devDependencies": {
     "test-machinepack-mocha": "^2.1.1"
