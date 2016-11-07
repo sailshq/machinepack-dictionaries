@@ -34,7 +34,8 @@
       "rename-key",
       "copy-key",
       "add-key",
-      "keys"
+      "keys",
+      "has"
     ],
     "testsUrl": "https://travis-ci.org/treelinehq/machinepack-dictionaries"
   },
